@@ -36,7 +36,7 @@ Ractive.eventDefinitions.draggable = function ( node, fire ) {
 
   return {
     teardown: function () {
-      node.draggable = true;
+      node.draggable = false;
       node.removeEventListener('dragstart', Drag.event('drag_start'));
       node.removeEventListener('dragenter', Drag.event('drag_enter'));
       node.removeEventListener('dragover', Drag.event('drag_over'));
