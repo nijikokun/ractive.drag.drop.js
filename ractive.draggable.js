@@ -26,8 +26,12 @@ Ractive.eventDefinitions.draggable = function ( node, fire ) {
           name: name,
           type: name.split('_')[1],
           target: this,
-          original: event
+          original: event,
+          previous: $self.previous
         });
+
+        if (name === 'drag_enter')
+          $self.previous = node;
 
         if (name === 'drag_end') 
           $self.current = null;
@@ -57,3 +61,4 @@ Ractive.eventDefinitions.draggable = function ( node, fire ) {
 };
 
 Ractive.eventDefinitions.draggable.current = null;
+Ractive.eventDefinitions.draggable.previous = null;
